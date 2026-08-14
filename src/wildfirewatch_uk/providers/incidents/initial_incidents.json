@@ -4,104 +4,124 @@
     "incident_name": "Stourbridge wildfire",
     "start_timestamp": null,
     "end_timestamp": null,
-    "latitude": null,
-    "longitude": null,
+    "latitude": 52.4438697,
+    "longitude": -2.1549644,
     "location_name": "Stourbridge",
-    "fire_service": null,
+    "fire_service": "West Midlands Fire Service",
     "incident_type": "wildfire",
     "area_burned_ha": null,
     "buildings_threatened": null,
-    "buildings_damaged": null,
+    "buildings_damaged": 19,
     "evacuations": null,
-    "injuries": null,
+    "injuries": 19,
     "suspected_cause": null,
     "sources": [
       {
-        "url": "https://placeholder.local/wildfirewatch-uk/stourbridge-2026-08",
-        "source_type": "placeholder",
-        "title": "Placeholder pending source verification"
+        "url": "https://www.theguardian.com/environment/2026/aug/14/stourbridge-wildfires-climate-change",
+        "source_type": "news_report",
+        "title": "The Guardian: It\u2019s due to climate: the people of Stourbridge on the town\u2019s wildfires"
+      },
+      {
+        "url": "https://nominatim.openstreetmap.org/search?format=jsonv2&limit=1&q=Osmaston%20Road%2C%20Stourbridge%2C%20UK",
+        "source_type": "geocoder",
+        "title": "OpenStreetMap Nominatim geocoding result for Osmaston Road, Stourbridge, UK"
       }
     ],
-    "confidence": "needs_verification",
-    "notes": "Case-study location from PLAN.md; source URL, ignition time, and coordinates still need verification."
+    "confidence": "medium",
+    "notes": "Guardian reports Stourbridge homes evacuated on Osmaston Road on Thursday 13 August 2026 as a wildfire spread near the town golf course; exact ignition time not yet source-confirmed. Coordinates are approximate geocoding of Osmaston Road, not a fire perimeter."
   },
   {
     "incident_id": "pershore-2026-08",
     "incident_name": "Pershore wildfire",
-    "start_timestamp": null,
+    "start_timestamp": "2026-08-13T16:17:00+01:00",
     "end_timestamp": null,
-    "latitude": null,
-    "longitude": null,
+    "latitude": 52.1130376,
+    "longitude": -2.0843023,
     "location_name": "Pershore",
-    "fire_service": null,
+    "fire_service": "Hereford & Worcester Fire and Rescue Service",
     "incident_type": "wildfire",
     "area_burned_ha": null,
     "buildings_threatened": null,
     "buildings_damaged": null,
-    "evacuations": null,
-    "injuries": null,
+    "evacuations": 30,
+    "injuries": 1,
     "suspected_cause": null,
     "sources": [
       {
-        "url": "https://placeholder.local/wildfirewatch-uk/pershore-2026-08",
-        "source_type": "placeholder",
-        "title": "Placeholder pending source verification"
+        "url": "https://eveshamobserver.co.uk/news/major-fires-in-salford-priors-and-pershore/",
+        "source_type": "news_report",
+        "title": "The Evesham Observer: Major fires in Salford Priors and Pershore"
+      },
+      {
+        "url": "https://nominatim.openstreetmap.org/search?format=jsonv2&limit=1&q=Three%20Springs%20Road%2C%20Pershore%2C%20Worcestershire%2C%20UK",
+        "source_type": "geocoder",
+        "title": "OpenStreetMap Nominatim geocoding result for Three Springs Road, Pershore, Worcestershire, UK"
       }
     ],
-    "confidence": "needs_verification",
-    "notes": "Case-study location from PLAN.md; source URL, ignition time, and coordinates still need verification."
+    "confidence": "medium",
+    "notes": "Evesham Observer reports a significant fire on Three Springs Road, Pershore, reported at 4.17pm on 13 August 2026; police helped residents evacuate, 30 properties were evacuated, several homes damaged, and one person treated for smoke inhalation. Coordinates are approximate geocoding of Three Springs Road."
   },
   {
     "incident_id": "new-forest-2026-08",
     "incident_name": "New Forest wildfire",
     "start_timestamp": null,
     "end_timestamp": null,
-    "latitude": null,
-    "longitude": null,
+    "latitude": 50.8489332,
+    "longitude": -1.7684223,
     "location_name": "New Forest",
-    "fire_service": null,
+    "fire_service": "Hampshire & Isle of Wight Fire and Rescue Service",
     "incident_type": "wildfire",
     "area_burned_ha": null,
     "buildings_threatened": null,
     "buildings_damaged": null,
     "evacuations": null,
     "injuries": null,
-    "suspected_cause": null,
+    "suspected_cause": "vehicle fire spread to heathland",
     "sources": [
       {
-        "url": "https://placeholder.local/wildfirewatch-uk/new-forest-2026-08",
-        "source_type": "placeholder",
-        "title": "Placeholder pending source verification"
+        "url": "https://www.bbc.com/news/live/cmq56755ve09t?page=9",
+        "source_type": "news_report",
+        "title": "BBC News live: Firefighters tackle challenging New Forest wildfire"
+      },
+      {
+        "url": "https://www.bbc.co.uk/newsround/articles/clyed7v41nlo",
+        "source_type": "news_report",
+        "title": "BBC Newsround: New Forest fire under control but unpredictable"
+      },
+      {
+        "url": "https://nominatim.openstreetmap.org/search?format=jsonv2&limit=1&q=A31%20Ringwood%20Hampshire%20UK",
+        "source_type": "geocoder",
+        "title": "OpenStreetMap Nominatim geocoding result for A31 Ringwood Hampshire UK"
       }
     ],
-    "confidence": "needs_verification",
-    "notes": "Case-study location from PLAN.md; source URL, ignition time, and coordinates still need verification."
+    "confidence": "medium",
+    "notes": "BBC reports the New Forest wildfire broke out on Sunday 9 August 2026 after a van caught fire on the A31 and spread to heathland; exact ignition time not yet source-confirmed. Coordinates are approximate geocoding of the A31 near Ringwood, not a fire perimeter."
   },
   {
     "incident_id": "cannock-chase-2026-08",
     "incident_name": "Cannock Chase wildfire",
-    "start_timestamp": null,
+    "start_timestamp": "2026-07-30T18:00:00+01:00",
     "end_timestamp": null,
     "latitude": null,
     "longitude": null,
     "location_name": "Cannock Chase",
-    "fire_service": null,
+    "fire_service": "Staffordshire Fire and Rescue Service",
     "incident_type": "wildfire",
     "area_burned_ha": null,
     "buildings_threatened": null,
     "buildings_damaged": null,
     "evacuations": null,
     "injuries": null,
-    "suspected_cause": null,
+    "suspected_cause": "disposable barbecue",
     "sources": [
       {
-        "url": "https://placeholder.local/wildfirewatch-uk/cannock-chase-2026-08",
-        "source_type": "placeholder",
-        "title": "Placeholder pending source verification"
+        "url": "https://www.staffordshire.gov.uk/newsroom/2026/road-cannock-chase-closed-temporarily-following-wildfire",
+        "source_type": "official_report",
+        "title": "Staffordshire County Council: Road in Cannock Chase closed temporarily following wildfire"
       }
     ],
-    "confidence": "needs_verification",
-    "notes": "Case-study location from PLAN.md; source URL, ignition time, and coordinates still need verification."
+    "confidence": "high",
+    "notes": "Staffordshire County Council reports crews were called to a large fire at Brocton at 6pm on Thursday 30 July 2026 after a blaze started by a disposable barbecue; fire scorched a football-pitch-sized area of heathland in Sherbrook Valley. Coordinates remain unset until a source-backed site centroid is selected."
   },
   {
     "incident_id": "tamworth-2026-08",
@@ -111,7 +131,7 @@
     "latitude": null,
     "longitude": null,
     "location_name": "Tamworth",
-    "fire_service": null,
+    "fire_service": "Staffordshire Fire and Rescue Service",
     "incident_type": "wildfire",
     "area_burned_ha": null,
     "buildings_threatened": null,
@@ -127,19 +147,19 @@
       }
     ],
     "confidence": "needs_verification",
-    "notes": "Case-study location from PLAN.md; source URL, ignition time, and coordinates still need verification."
+    "notes": "Research found only weak/snippet-level references to a Tamworth fire during the heatwave; keep as an unverified PLAN.md case-study location until a durable source URL is found."
   },
   {
     "incident_id": "stoke-on-trent-2026-08",
-    "incident_name": "Stoke-on-Trent wildfire",
-    "start_timestamp": null,
+    "incident_name": "Stoke-on-Trent Park Hall Country Park grass fire",
+    "start_timestamp": "2026-08-09T16:30:00+01:00",
     "end_timestamp": null,
-    "latitude": null,
-    "longitude": null,
+    "latitude": 53.00131,
+    "longitude": -2.1069951,
     "location_name": "Stoke-on-Trent",
-    "fire_service": null,
-    "incident_type": "wildfire",
-    "area_burned_ha": null,
+    "fire_service": "Staffordshire Fire and Rescue Service",
+    "incident_type": "grass_fire",
+    "area_burned_ha": 1.0,
     "buildings_threatened": null,
     "buildings_damaged": null,
     "evacuations": null,
@@ -147,25 +167,30 @@
     "suspected_cause": null,
     "sources": [
       {
-        "url": "https://placeholder.local/wildfirewatch-uk/stoke-on-trent-2026-08",
-        "source_type": "placeholder",
-        "title": "Placeholder pending source verification"
+        "url": "https://www.bbc.co.uk/news/articles/c5y3v70ydlvo",
+        "source_type": "news_report",
+        "title": "BBC News: Crews remain at scene of country park fire"
+      },
+      {
+        "url": "https://nominatim.openstreetmap.org/search?format=jsonv2&limit=1&q=Park%20Hall%20Country%20Park%20Stoke-on-Trent",
+        "source_type": "geocoder",
+        "title": "OpenStreetMap Nominatim geocoding result for Park Hall Country Park Stoke-on-Trent"
       }
     ],
-    "confidence": "needs_verification",
-    "notes": "Case-study location from PLAN.md; source URL, ignition time, and coordinates still need verification."
+    "confidence": "medium",
+    "notes": "BBC reports crews were called at 16:30 BST on Sunday 9 August 2026 to Park Hall Country Park off Park Hall Road, and that the fire covered about 100m x 100m of scrubland and grassland. Coordinates are approximate geocoding of Park Hall Country Park."
   },
   {
     "incident_id": "rhandirmwyn-llandovery-2026-08",
     "incident_name": "Rhandirmwyn / Llandovery wildfire",
-    "start_timestamp": null,
+    "start_timestamp": "2026-08-12T12:45:00+01:00",
     "end_timestamp": null,
-    "latitude": null,
-    "longitude": null,
+    "latitude": 52.0776364,
+    "longitude": -3.7751552,
     "location_name": "Rhandirmwyn / Llandovery",
-    "fire_service": null,
+    "fire_service": "Mid and West Wales Fire and Rescue Service",
     "incident_type": "wildfire",
-    "area_burned_ha": null,
+    "area_burned_ha": 250.0,
     "buildings_threatened": null,
     "buildings_damaged": null,
     "evacuations": null,
@@ -173,38 +198,58 @@
     "suspected_cause": null,
     "sources": [
       {
-        "url": "https://placeholder.local/wildfirewatch-uk/rhandirmwyn-llandovery-2026-08",
-        "source_type": "placeholder",
-        "title": "Placeholder pending source verification"
+        "url": "https://www.southwalesguardian.co.uk/news/26467039.250-hectare-wildfire-still-burning-homes-remain-evacuated/",
+        "source_type": "news_report",
+        "title": "South Wales Guardian: 250-hectare wildfire still burning as homes remain evacuated"
+      },
+      {
+        "url": "https://www.walesonline.co.uk/news/wales-news/military-called-wildfires-rage-across-34461050",
+        "source_type": "news_report",
+        "title": "WalesOnline: Military called in as wildfires rage across south Wales"
+      },
+      {
+        "url": "https://nominatim.openstreetmap.org/search?format=jsonv2&limit=1&q=Rhandirmwyn%2C%20Carmarthenshire%2C%20Wales%2C%20UK",
+        "source_type": "geocoder",
+        "title": "OpenStreetMap Nominatim geocoding result for Rhandirmwyn, Carmarthenshire, Wales, UK"
       }
     ],
-    "confidence": "needs_verification",
-    "notes": "Case-study location from PLAN.md; source URL, ignition time, and coordinates still need verification."
+    "confidence": "medium",
+    "notes": "South Wales Guardian reports a 250-hectare wildfire near Rhandirmwyn burning since Wednesday 12 August 2026 with homes evacuated; WalesOnline reports it had been burning since 12:45pm. Coordinates are approximate geocoding of Rhandirmwyn village, not the fire perimeter."
   },
   {
     "incident_id": "porth-2026-08",
     "incident_name": "Porth wildfire",
     "start_timestamp": null,
     "end_timestamp": null,
-    "latitude": null,
-    "longitude": null,
+    "latitude": 51.6191027,
+    "longitude": -3.4149125,
     "location_name": "Porth",
-    "fire_service": null,
+    "fire_service": "South Wales Fire and Rescue Service",
     "incident_type": "wildfire",
     "area_burned_ha": null,
     "buildings_threatened": null,
     "buildings_damaged": null,
     "evacuations": null,
     "injuries": null,
-    "suspected_cause": null,
+    "suspected_cause": "suspected deliberate fire; arson arrests reported",
     "sources": [
       {
-        "url": "https://placeholder.local/wildfirewatch-uk/porth-2026-08",
-        "source_type": "placeholder",
-        "title": "Placeholder pending source verification"
+        "url": "https://www.bbc.com/news/articles/c1w1y31ejpno",
+        "source_type": "news_report",
+        "title": "BBC News: Emergency alert issued for wildfires as military brought in to tackle response"
+      },
+      {
+        "url": "https://www.walesonline.co.uk/news/wales-news/military-called-wildfires-rage-across-34461050",
+        "source_type": "news_report",
+        "title": "WalesOnline: Military called in as wildfires rage across south Wales"
+      },
+      {
+        "url": "https://nominatim.openstreetmap.org/search?format=jsonv2&limit=1&q=Pleasant%20Heights%2C%20Porth%2C%20Rhondda%20Cynon%20Taf%2C%20Wales%2C%20UK",
+        "source_type": "geocoder",
+        "title": "OpenStreetMap Nominatim geocoding result for Pleasant Heights, Porth, Rhondda Cynon Taf, Wales, UK"
       }
     ],
-    "confidence": "needs_verification",
-    "notes": "Case-study location from PLAN.md; source URL, ignition time, and coordinates still need verification."
+    "confidence": "medium",
+    "notes": "BBC reports South Wales Fire and Rescue had significant resources at a Porth wildfire on Thursday 13 August 2026 and police arrested four 14-year-old boys on suspicion of arson after a deliberate fire on the mountain near Pleasant Heights, Porth. Exact ignition time not yet source-confirmed. Coordinates are approximate geocoding of Pleasant Heights."
   }
 ]
