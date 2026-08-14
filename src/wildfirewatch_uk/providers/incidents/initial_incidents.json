@@ -1,0 +1,210 @@
+[
+  {
+    "incident_id": "stourbridge-2026-08",
+    "incident_name": "Stourbridge wildfire",
+    "start_timestamp": null,
+    "end_timestamp": null,
+    "latitude": null,
+    "longitude": null,
+    "location_name": "Stourbridge",
+    "fire_service": null,
+    "incident_type": "wildfire",
+    "area_burned_ha": null,
+    "buildings_threatened": null,
+    "buildings_damaged": null,
+    "evacuations": null,
+    "injuries": null,
+    "suspected_cause": null,
+    "sources": [
+      {
+        "url": "https://placeholder.local/wildfirewatch-uk/stourbridge-2026-08",
+        "source_type": "placeholder",
+        "title": "Placeholder pending source verification"
+      }
+    ],
+    "confidence": "needs_verification",
+    "notes": "Case-study location from PLAN.md; source URL, ignition time, and coordinates still need verification."
+  },
+  {
+    "incident_id": "pershore-2026-08",
+    "incident_name": "Pershore wildfire",
+    "start_timestamp": null,
+    "end_timestamp": null,
+    "latitude": null,
+    "longitude": null,
+    "location_name": "Pershore",
+    "fire_service": null,
+    "incident_type": "wildfire",
+    "area_burned_ha": null,
+    "buildings_threatened": null,
+    "buildings_damaged": null,
+    "evacuations": null,
+    "injuries": null,
+    "suspected_cause": null,
+    "sources": [
+      {
+        "url": "https://placeholder.local/wildfirewatch-uk/pershore-2026-08",
+        "source_type": "placeholder",
+        "title": "Placeholder pending source verification"
+      }
+    ],
+    "confidence": "needs_verification",
+    "notes": "Case-study location from PLAN.md; source URL, ignition time, and coordinates still need verification."
+  },
+  {
+    "incident_id": "new-forest-2026-08",
+    "incident_name": "New Forest wildfire",
+    "start_timestamp": null,
+    "end_timestamp": null,
+    "latitude": null,
+    "longitude": null,
+    "location_name": "New Forest",
+    "fire_service": null,
+    "incident_type": "wildfire",
+    "area_burned_ha": null,
+    "buildings_threatened": null,
+    "buildings_damaged": null,
+    "evacuations": null,
+    "injuries": null,
+    "suspected_cause": null,
+    "sources": [
+      {
+        "url": "https://placeholder.local/wildfirewatch-uk/new-forest-2026-08",
+        "source_type": "placeholder",
+        "title": "Placeholder pending source verification"
+      }
+    ],
+    "confidence": "needs_verification",
+    "notes": "Case-study location from PLAN.md; source URL, ignition time, and coordinates still need verification."
+  },
+  {
+    "incident_id": "cannock-chase-2026-08",
+    "incident_name": "Cannock Chase wildfire",
+    "start_timestamp": null,
+    "end_timestamp": null,
+    "latitude": null,
+    "longitude": null,
+    "location_name": "Cannock Chase",
+    "fire_service": null,
+    "incident_type": "wildfire",
+    "area_burned_ha": null,
+    "buildings_threatened": null,
+    "buildings_damaged": null,
+    "evacuations": null,
+    "injuries": null,
+    "suspected_cause": null,
+    "sources": [
+      {
+        "url": "https://placeholder.local/wildfirewatch-uk/cannock-chase-2026-08",
+        "source_type": "placeholder",
+        "title": "Placeholder pending source verification"
+      }
+    ],
+    "confidence": "needs_verification",
+    "notes": "Case-study location from PLAN.md; source URL, ignition time, and coordinates still need verification."
+  },
+  {
+    "incident_id": "tamworth-2026-08",
+    "incident_name": "Tamworth wildfire",
+    "start_timestamp": null,
+    "end_timestamp": null,
+    "latitude": null,
+    "longitude": null,
+    "location_name": "Tamworth",
+    "fire_service": null,
+    "incident_type": "wildfire",
+    "area_burned_ha": null,
+    "buildings_threatened": null,
+    "buildings_damaged": null,
+    "evacuations": null,
+    "injuries": null,
+    "suspected_cause": null,
+    "sources": [
+      {
+        "url": "https://placeholder.local/wildfirewatch-uk/tamworth-2026-08",
+        "source_type": "placeholder",
+        "title": "Placeholder pending source verification"
+      }
+    ],
+    "confidence": "needs_verification",
+    "notes": "Case-study location from PLAN.md; source URL, ignition time, and coordinates still need verification."
+  },
+  {
+    "incident_id": "stoke-on-trent-2026-08",
+    "incident_name": "Stoke-on-Trent wildfire",
+    "start_timestamp": null,
+    "end_timestamp": null,
+    "latitude": null,
+    "longitude": null,
+    "location_name": "Stoke-on-Trent",
+    "fire_service": null,
+    "incident_type": "wildfire",
+    "area_burned_ha": null,
+    "buildings_threatened": null,
+    "buildings_damaged": null,
+    "evacuations": null,
+    "injuries": null,
+    "suspected_cause": null,
+    "sources": [
+      {
+        "url": "https://placeholder.local/wildfirewatch-uk/stoke-on-trent-2026-08",
+        "source_type": "placeholder",
+        "title": "Placeholder pending source verification"
+      }
+    ],
+    "confidence": "needs_verification",
+    "notes": "Case-study location from PLAN.md; source URL, ignition time, and coordinates still need verification."
+  },
+  {
+    "incident_id": "rhandirmwyn-llandovery-2026-08",
+    "incident_name": "Rhandirmwyn / Llandovery wildfire",
+    "start_timestamp": null,
+    "end_timestamp": null,
+    "latitude": null,
+    "longitude": null,
+    "location_name": "Rhandirmwyn / Llandovery",
+    "fire_service": null,
+    "incident_type": "wildfire",
+    "area_burned_ha": null,
+    "buildings_threatened": null,
+    "buildings_damaged": null,
+    "evacuations": null,
+    "injuries": null,
+    "suspected_cause": null,
+    "sources": [
+      {
+        "url": "https://placeholder.local/wildfirewatch-uk/rhandirmwyn-llandovery-2026-08",
+        "source_type": "placeholder",
+        "title": "Placeholder pending source verification"
+      }
+    ],
+    "confidence": "needs_verification",
+    "notes": "Case-study location from PLAN.md; source URL, ignition time, and coordinates still need verification."
+  },
+  {
+    "incident_id": "porth-2026-08",
+    "incident_name": "Porth wildfire",
+    "start_timestamp": null,
+    "end_timestamp": null,
+    "latitude": null,
+    "longitude": null,
+    "location_name": "Porth",
+    "fire_service": null,
+    "incident_type": "wildfire",
+    "area_burned_ha": null,
+    "buildings_threatened": null,
+    "buildings_damaged": null,
+    "evacuations": null,
+    "injuries": null,
+    "suspected_cause": null,
+    "sources": [
+      {
+        "url": "https://placeholder.local/wildfirewatch-uk/porth-2026-08",
+        "source_type": "placeholder",
+        "title": "Placeholder pending source verification"
+      }
+    ],
+    "confidence": "needs_verification",
+    "notes": "Case-study location from PLAN.md; source URL, ignition time, and coordinates still need verification."
+  }
+]
