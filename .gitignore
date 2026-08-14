@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Environments
+.venv/
+.env
+.env.*
+!.env.example
+
+# Data: keep generated/raw data local unless intentionally curated
+/data/raw/*
+/data/interim/*
+/data/processed/*
+!/data/raw/.gitkeep
+!/data/interim/.gitkeep
+!/data/processed/.gitkeep
+
+# Reports may include generated artifacts; commit intentionally
+/reports/*.html
+/reports/*.png
+/reports/*.csv
+
+# OS/editor
+.DS_Store
+.vscode/
+.idea/

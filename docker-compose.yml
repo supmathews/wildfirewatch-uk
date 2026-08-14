@@ -1,0 +1,31 @@
+services:
+  db:
+    image: postgis/postgis:16-3.4
+    environment:
+      POSTGRES_USER: wildfirewatch
+      POSTGRES_PASSWORD: wildfirewatch
+      POSTGRES_DB: wildfirewatch
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U wildfirewatch -d wildfirewatch"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  api:
+    build: .
+    environment:
+      DATABASE_URL: postgresql+psycopg://wildfirewatch:wildfirewatch@db:5432/wildfirewatch
+      APP_ENV: development
+      LOG_LEVEL: INFO
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  postgres_data:

@@ -1,0 +1,64 @@
+[project]
+name = "wildfirewatch-uk"
+version = "0.1.0"
+description = "AI-assisted wildfire risk and situational intelligence for the UK."
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "MIT" }
+authors = [{ name = "Mathews Mathew" }]
+keywords = ["wildfire", "uk", "risk", "geospatial", "machine-learning", "fastapi"]
+classifiers = [
+  "Development Status :: 2 - Pre-Alpha",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Scientific/Engineering :: GIS",
+]
+dependencies = [
+  "fastapi>=0.116.0",
+  "uvicorn[standard]>=0.35.0",
+  "pydantic>=2.11.0",
+  "pydantic-settings>=2.10.0",
+  "sqlalchemy>=2.0.0",
+  "psycopg[binary]>=3.2.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "httpx>=0.28.0",
+  "pytest>=8.3.0",
+  "pytest-cov>=6.0.0",
+  "ruff>=0.12.0",
+]
+geo = [
+  "geopandas>=1.0.0",
+  "shapely>=2.0.0",
+  "rasterio>=1.4.0",
+]
+ml = [
+  "pandas>=2.2.0",
+  "scikit-learn>=1.5.0",
+  "lightgbm>=4.5.0",
+  "xgboost>=2.1.0",
+  "shap>=0.46.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/wildfirewatch_uk"]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
