@@ -35,6 +35,7 @@ def test_usable_incidents_for_weather_filters_to_records_with_time_and_coordinat
     incidents = usable_incidents_for_weather(load_seed_incidents())
 
     assert {incident.incident_id for incident in incidents} == {
+        "cannock-chase-sherbrook-valley-2026-08",
         "pershore-2026-08",
         "stoke-on-trent-2026-08",
         "rhandirmwyn-llandovery-2026-08",
@@ -46,6 +47,7 @@ def test_build_features_for_seed_incidents_returns_one_row_per_usable_incident()
 
     assert [row.incident_id for row in rows] == [
         "pershore-2026-08",
+        "cannock-chase-sherbrook-valley-2026-08",
         "stoke-on-trent-2026-08",
         "rhandirmwyn-llandovery-2026-08",
     ]
