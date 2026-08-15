@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import time
 import urllib.parse
 import urllib.request
 from datetime import UTC, date, datetime
@@ -62,9 +63,18 @@ class OpenMeteoArchiveClient:
             end_date=end_date,
         )
         request = urllib.request.Request(url, headers={"User-Agent": "WildfireWatchUK/0.1"})
-        with urllib.request.urlopen(request, timeout=60) as response:
-            payload = json.loads(response.read().decode("utf-8"))
-        return parse_open_meteo_hourly_response(payload)
+        last_error: Exception | None = None
+        for attempt in range(3):
+            try:
+                with urllib.request.urlopen(request, timeout=60) as response:
+                    payload = json.loads(response.read().decode("utf-8"))
+                return parse_open_meteo_hourly_response(payload)
+            except Exception as error:  # pragma: no cover - exercised by live network runs
+                last_error = error
+                if attempt < 2:
+                    time.sleep(2**attempt)
+        assert last_error is not None
+        raise last_error
 
 
 def _value(values: list[Any], index: int) -> Any:
