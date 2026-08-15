@@ -13,12 +13,13 @@ def incident_by_id():
 def test_initial_seed_dataset_contains_plan_case_study_locations():
     incidents = load_seed_incidents()
 
-    assert len(incidents) == 8
+    assert len(incidents) == 9
     assert {incident.location_name for incident in incidents} == {
         "Stourbridge",
         "Pershore",
         "New Forest",
         "Cannock Chase",
+        "Cannock Chase / Sherbrook Valley",
         "Tamworth",
         "Stoke-on-Trent",
         "Rhandirmwyn / Llandovery",
@@ -54,6 +55,9 @@ def test_seed_dataset_keeps_exact_times_only_when_source_supported():
     assert incidents["cannock-chase-2026-08"].start_timestamp == datetime(
         2026, 7, 30, 18, 0, tzinfo=BST
     )
+    assert incidents["cannock-chase-sherbrook-valley-2026-08"].start_timestamp == datetime(
+        2026, 8, 5, 14, 30, tzinfo=BST
+    )
     assert incidents["stoke-on-trent-2026-08"].start_timestamp == datetime(
         2026, 8, 9, 16, 30, tzinfo=BST
     )
@@ -77,3 +81,5 @@ def test_seed_dataset_includes_researched_coordinates_when_source_location_is_sp
     assert incidents["rhandirmwyn-llandovery-2026-08"].longitude == -3.7751552
     assert incidents["porth-2026-08"].latitude == 51.6191027
     assert incidents["porth-2026-08"].longitude == -3.4149125
+    assert incidents["cannock-chase-sherbrook-valley-2026-08"].latitude == 52.7496197
+    assert incidents["cannock-chase-sherbrook-valley-2026-08"].longitude == -2.0053533

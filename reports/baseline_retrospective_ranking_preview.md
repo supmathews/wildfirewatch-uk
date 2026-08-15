@@ -8,15 +8,15 @@ function is a transparent heuristic rather than a trained model.
 
 ## Dataset
 
-- Samples: 18
-- Positive incident samples: 3
-- Control samples: 15
+- Samples: 24
+- Positive incident samples: 4
+- Control samples: 20
 
 ## Ranking metrics
 
 - Recall@Top10%: 0.000
-- Recall@Top20%: 0.000
-- Recall@Top50%: 0.333
+- Recall@Top20%: 0.250
+- Recall@Top50%: 0.500
 - Recall@Top100%: 1.000
 
 ## Top ranked samples
@@ -28,11 +28,11 @@ function is a transparent heuristic rather than a trained model.
 | 3 | control-pershore-2026-08-002 | 0 | 85.677 |
 | 4 | control-pershore-2026-08-001 | 0 | 83.008 |
 | 5 | pershore-2026-08 | 1 | 82.434 |
-| 6 | control-stoke-on-trent-2026-08-004 | 0 | 80.017 |
-| 7 | control-pershore-2026-08-005 | 0 | 78.283 |
-| 8 | control-stoke-on-trent-2026-08-002 | 0 | 77.337 |
-| 9 | control-stoke-on-trent-2026-08-001 | 0 | 76.511 |
-| 10 | control-rhandirmwyn-llandovery-2026-08-004 | 0 | 71.071 |
+| 6 | control-pershore-2026-08-005 | 0 | 78.283 |
+| 7 | control-stoke-on-trent-2026-08-001 | 0 | 77.160 |
+| 8 | control-rhandirmwyn-llandovery-2026-08-005 | 0 | 76.494 |
+| 9 | control-cannock-chase-sherbrook-valley-2026-08-004 | 0 | 75.582 |
+| 10 | cannock-chase-sherbrook-valley-2026-08 | 1 | 72.982 |
 
 ## Interpretation
 

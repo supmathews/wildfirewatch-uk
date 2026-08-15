@@ -124,6 +124,37 @@
     "notes": "Staffordshire County Council reports crews were called to a large fire at Brocton at 6pm on Thursday 30 July 2026 after a blaze started by a disposable barbecue; fire scorched a football-pitch-sized area of heathland in Sherbrook Valley. Coordinates remain unset until a source-backed site centroid is selected."
   },
   {
+    "incident_id": "cannock-chase-sherbrook-valley-2026-08",
+    "incident_name": "Cannock Chase / Sherbrook Valley wildfire",
+    "start_timestamp": "2026-08-05T14:30:00+01:00",
+    "end_timestamp": null,
+    "latitude": 52.7496197,
+    "longitude": -2.0053533,
+    "location_name": "Cannock Chase / Sherbrook Valley",
+    "fire_service": "Staffordshire Fire and Rescue Service",
+    "incident_type": "wildfire",
+    "area_burned_ha": null,
+    "buildings_threatened": null,
+    "buildings_damaged": null,
+    "evacuations": null,
+    "injuries": null,
+    "suspected_cause": null,
+    "sources": [
+      {
+        "url": "https://www.bbc.com/news/articles/c0l59yn404eo",
+        "source_type": "news_report",
+        "title": "BBC News: Huge fire at Cannock Chase contained, say fire crews"
+      },
+      {
+        "url": "https://nominatim.openstreetmap.org/search?format=jsonv2&limit=5&q=Cannock%20Chase%2C%20Staffordshire%2C%20UK",
+        "source_type": "geocoder",
+        "title": "OpenStreetMap Nominatim geocoding result for Cannock Chase wood, Staffordshire"
+      }
+    ],
+    "confidence": "medium",
+    "notes": "BBC reports a large wildfire on heathland at Sherbrook Valley in Cannock Chase, with fifteen crews responding after reports of smoke at about 14:30 BST on Wednesday 5 August 2026. Coordinates are approximate OpenStreetMap geocoding of Cannock Chase wood, not a Sherbrook Valley fire perimeter. Keep separate from the 30 July Brocton/Sherbrook Valley incident."
+  },
+  {
     "incident_id": "tamworth-2026-08",
     "incident_name": "Tamworth wildfire",
     "start_timestamp": null,
