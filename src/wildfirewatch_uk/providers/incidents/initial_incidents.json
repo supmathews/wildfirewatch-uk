@@ -138,8 +138,8 @@
     "incident_name": "Cannock Chase wildfire",
     "start_timestamp": "2026-07-30T18:00:00+01:00",
     "end_timestamp": null,
-    "latitude": null,
-    "longitude": null,
+    "latitude": 52.7725969,
+    "longitude": -2.0458326,
     "location_name": "Cannock Chase",
     "fire_service": "Staffordshire Fire and Rescue Service",
     "incident_type": "wildfire",
@@ -154,10 +154,15 @@
         "url": "https://www.staffordshire.gov.uk/newsroom/2026/road-cannock-chase-closed-temporarily-following-wildfire",
         "source_type": "official_report",
         "title": "Staffordshire County Council: Road in Cannock Chase closed temporarily following wildfire"
+      },
+      {
+        "url": "https://nominatim.openstreetmap.org/search?format=jsonv2&limit=5&q=Brocton%20Staffordshire",
+        "source_type": "geocoder",
+        "title": "OpenStreetMap Nominatim geocoding result for Brocton Staffordshire"
       }
     ],
     "confidence": "high",
-    "notes": "Staffordshire County Council reports crews were called to a large fire at Brocton at 6pm on Thursday 30 July 2026 after a blaze started by a disposable barbecue; fire scorched a football-pitch-sized area of heathland in Sherbrook Valley. Coordinates remain unset until a source-backed site centroid is selected."
+    "notes": "Staffordshire County Council reports crews were called to a large fire at the site in Brocton at 6pm on Thursday 30 July 2026 after a blaze started by a disposable barbecue; the fire scorched a football-pitch-sized area of heathland in Sherbrook Valley. Coordinates are approximate geocoding of Brocton, not a fire perimeter or exact burn centroid."
   },
   {
     "incident_id": "cannock-chase-sherbrook-valley-2026-08",

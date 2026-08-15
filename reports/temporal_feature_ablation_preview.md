@@ -8,11 +8,11 @@ over the same temporal-control rows.
 
 | feature_family | samples | positives | ROC-AUC | PR-AUC | Recall@Top20% | Recall@Top50% |
 |---|---:|---:|---:|---:|---:|---:|
-| all | 16 | 4 | 0.916667 | 0.770833 | 0.750 | 1.000 |
-| latest_weather | 16 | 4 | 0.687500 | 0.534659 | 0.250 | 0.750 |
-| rainfall_windows | 16 | 4 | 0.916667 | 0.770833 | 0.750 | 1.000 |
-| dry_spell_memory | 16 | 4 | 0.729167 | 0.565909 | 0.250 | 0.750 |
-| rainfall_and_dry_spell | 16 | 4 | 0.916667 | 0.816667 | 0.500 | 1.000 |
+| all | 20 | 5 | 0.946667 | 0.852857 | 0.600 | 1.000 |
+| latest_weather | 20 | 5 | 0.720000 | 0.522637 | 0.200 | 0.800 |
+| rainfall_windows | 20 | 5 | 0.946667 | 0.852857 | 0.600 | 1.000 |
+| dry_spell_memory | 20 | 5 | 0.773333 | 0.657143 | 0.400 | 0.800 |
+| rainfall_and_dry_spell | 20 | 5 | 0.960000 | 0.902857 | 0.600 | 1.000 |
 
 ## Interpretation guide
 

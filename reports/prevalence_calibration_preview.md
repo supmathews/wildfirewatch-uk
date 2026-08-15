@@ -6,24 +6,24 @@ corrected from the sampled positive prevalence to assumed rare-event prevalences
 
 ## Source evaluation
 
-- samples: 16
-- positives: 4
+- samples: 20
+- positives: 5
 - sample prevalence: 0.250000
-- ROC-AUC: 0.916667
-- PR-AUC: 0.770833
+- ROC-AUC: 0.946667
+- PR-AUC: 0.852857
 
 ## Top out-of-sample rows with corrected probabilities
 
 | sample_id | target | raw_score_pct | p@1.0000% | p@0.1000% |
 |---|---|---|---|---|
-| pershore-2026-08 | 1 | 83.762 | 0.135184 | 0.015254 |
-| control-pershore-2026-08-temporal-30d | 0 | 56.282 | 0.037547 | 0.003851 |
-| cannock-chase-sherbrook-valley-2026-08 | 1 | 42.882 | 0.022244 | 0.002249 |
-| stoke-on-trent-2026-08 | 1 | 40.378 | 0.020110 | 0.002030 |
-| control-pershore-2026-08-temporal-90d | 0 | 40.068 | 0.019857 | 0.002004 |
-| rhandirmwyn-llandovery-2026-08 | 1 | 25.979 | 0.010523 | 0.001053 |
-| control-stoke-on-trent-2026-08-temporal-30d | 0 | 25.636 | 0.010339 | 0.001034 |
-| control-cannock-chase-sherbrook-valley-2026-08-temporal-90d | 0 | 20.702 | 0.007849 | 0.000783 |
+| pershore-2026-08 | 1 | 81.579 | 0.118321 | 0.013125 |
+| cannock-chase-sherbrook-valley-2026-08 | 1 | 73.157 | 0.076287 | 0.008118 |
+| control-pershore-2026-08-temporal-30d | 0 | 57.618 | 0.039567 | 0.004066 |
+| cannock-chase-2026-08 | 1 | 55.214 | 0.036013 | 0.003689 |
+| stoke-on-trent-2026-08 | 1 | 38.959 | 0.018974 | 0.001913 |
+| control-pershore-2026-08-temporal-90d | 0 | 33.074 | 0.014754 | 0.001482 |
+| rhandirmwyn-llandovery-2026-08 | 1 | 27.926 | 0.011605 | 0.001162 |
+| control-stoke-on-trent-2026-08-temporal-30d | 0 | 26.670 | 0.010901 | 0.001091 |
 
 ## Interpretation
 

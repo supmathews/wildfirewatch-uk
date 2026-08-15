@@ -85,5 +85,7 @@ def test_seed_dataset_includes_researched_coordinates_when_source_location_is_sp
     assert incidents["porth-2026-08"].longitude == -3.4149125
     assert incidents["cannock-chase-sherbrook-valley-2026-08"].latitude == 52.7496197
     assert incidents["cannock-chase-sherbrook-valley-2026-08"].longitude == -2.0053533
+    assert incidents["cannock-chase-2026-08"].latitude == 52.7725969
+    assert incidents["cannock-chase-2026-08"].longitude == -2.0458326
     assert incidents["llangynidr-reservoir-2026-08"].latitude == 51.8188852
     assert incidents["llangynidr-reservoir-2026-08"].longitude == -3.2310517

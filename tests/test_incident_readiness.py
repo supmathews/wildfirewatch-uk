@@ -82,10 +82,11 @@ def test_audit_seed_incidents_counts_current_model_ready_records():
     blocked = [result for result in results if result.status is IncidentReadinessStatus.BLOCKED]
 
     assert len(results) == 10
-    assert len(ready) == 4
-    assert len(blocked) == 6
+    assert len(ready) == 5
+    assert len(blocked) == 5
     assert {result.incident_id for result in ready} == {
         "pershore-2026-08",
+        "cannock-chase-2026-08",
         "cannock-chase-sherbrook-valley-2026-08",
         "stoke-on-trent-2026-08",
         "rhandirmwyn-llandovery-2026-08",
