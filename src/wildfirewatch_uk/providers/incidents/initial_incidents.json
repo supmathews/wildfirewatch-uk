@@ -98,6 +98,42 @@
     "notes": "BBC reports the New Forest wildfire broke out on Sunday 9 August 2026 after a van caught fire on the A31 and spread to heathland; exact ignition time not yet source-confirmed. Coordinates are approximate geocoding of the A31 near Ringwood, not a fire perimeter."
   },
   {
+    "incident_id": "llangynidr-reservoir-2026-08",
+    "incident_name": "Llangynidr Reservoir moorland wildfire",
+    "start_timestamp": null,
+    "end_timestamp": null,
+    "latitude": 51.8188852,
+    "longitude": -3.2310517,
+    "location_name": "Llangynidr Reservoir",
+    "fire_service": "Mid and West Wales Fire and Rescue Service",
+    "incident_type": "wildfire",
+    "area_burned_ha": null,
+    "buildings_threatened": null,
+    "buildings_damaged": null,
+    "evacuations": null,
+    "injuries": null,
+    "suspected_cause": null,
+    "sources": [
+      {
+        "url": "https://www.mawwfire.gov.uk/eng/newsroom/llangynidr-reservoir-moorland-wildfire/",
+        "source_type": "official_report",
+        "title": "Mid and West Wales Fire and Rescue Service: Llangynidr Reservoir Moorland Wildfire \u2013 Incident Update 12 August 2026"
+      },
+      {
+        "url": "https://www.mawwfire.gov.uk/eng/newsroom/incident-update-llangynidr-reservoir-moorland-wildfire/",
+        "source_type": "official_report",
+        "title": "Mid and West Wales Fire and Rescue Service: Incident Update: Llangynidr Reservoir Moorland Wildfire"
+      },
+      {
+        "url": "https://nominatim.openstreetmap.org/search?format=jsonv2&limit=3&q=Llangynidr%20Reservoir%20Wales",
+        "source_type": "geocoder",
+        "title": "OpenStreetMap Nominatim geocoding result for Llangynidr Reservoir Wales"
+      }
+    ],
+    "confidence": "medium",
+    "notes": "MAWWFRS official updates report a moorland wildfire at Llangynidr Reservoir near Ebbw Vale that remained under control on 12 August 2026 after sustained firefighting and partner-agency response. Exact ignition/call time was not found in the official pages reviewed, so this record is source-backed but excluded from weather-feature modelling until a timestamp is verified. Coordinates are approximate geocoding of Llangynidr Reservoir, not a fire perimeter."
+  },
+  {
     "incident_id": "cannock-chase-2026-08",
     "incident_name": "Cannock Chase wildfire",
     "start_timestamp": "2026-07-30T18:00:00+01:00",
