@@ -1,6 +1,10 @@
 from datetime import UTC, datetime
 
-from wildfirewatch_uk.features.controls import ControlLocation, generate_matched_controls
+from wildfirewatch_uk.features.controls import (
+    ControlLocation,
+    distance_km,
+    generate_matched_controls,
+)
 from wildfirewatch_uk.features.weather import IncidentWeatherFeatures
 
 
@@ -47,3 +51,26 @@ def test_generate_matched_controls_keep_same_target_time_but_offset_location():
     assert all(control.longitude != incident.longitude for control in controls)
     assert all(49.8 <= control.latitude <= 58.8 for control in controls)
     assert all(-8.7 <= control.longitude <= 1.8 for control in controls)
+
+
+def test_generate_matched_controls_respects_minimum_distance_from_incidents():
+    incidents = [
+        feature_row("pershore-2026-08", 52.113, -2.084),
+        feature_row("stoke-on-trent-2026-08", 53.001, -2.107),
+    ]
+
+    controls = generate_matched_controls(
+        incidents,
+        controls_per_incident=10,
+        seed=7,
+        min_distance_from_any_incident_km=25,
+    )
+
+    assert len(controls) == 20
+    assert all(
+        distance_km(control.latitude, control.longitude, incident.latitude, incident.longitude)
+        >= 25
+        for control in controls
+        for incident in incidents
+    )
+    assert all(control.sampling_method == "regional_offset_min_distance_v2" for control in controls)
