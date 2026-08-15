@@ -6,16 +6,16 @@ visible rather than hiding it behind point estimates.
 
 ## Configuration
 
-- samples: 16
-- positives: 4
+- samples: 20
+- positives: 5
 - confidence level: 90%
 
 ## Bootstrap intervals
 
 | metric | point estimate | interval | valid resamples | skipped resamples |
 |---|---:|---:|---:|---:|
-| roc_auc | 0.916667 | [0.766212, 1.000000] | 498 | 2 |
-| pr_auc | 0.770833 | [0.409968, 1.000000] | 498 | 2 |
+| roc_auc | 0.946667 | [0.831333, 1.000000] | 495 | 5 |
+| pr_auc | 0.852857 | [0.500833, 1.000000] | 495 | 5 |
 
 ## Interpretation
 

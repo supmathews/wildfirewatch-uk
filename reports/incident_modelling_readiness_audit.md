@@ -7,13 +7,13 @@ missing timestamps or coordinates exclude incidents to preserve leakage discipli
 ## Summary
 
 - total incidents: 10
-- model-ready incidents: 4
-- blocked incidents: 6
+- model-ready incidents: 5
+- blocked incidents: 5
 
 ## Blocker counts
 
-- missing_latitude: 2
-- missing_longitude: 2
+- missing_latitude: 1
+- missing_longitude: 1
 - missing_start_timestamp: 5
 - needs_verification: 1
 - placeholder_source: 1
@@ -26,7 +26,7 @@ missing timestamps or coordinates exclude incidents to preserve leakage discipli
 | pershore-2026-08 | Pershore | model_ready | none |
 | new-forest-2026-08 | New Forest | blocked | missing_start_timestamp |
 | llangynidr-reservoir-2026-08 | Llangynidr Reservoir | blocked | missing_start_timestamp |
-| cannock-chase-2026-08 | Cannock Chase | blocked | missing_latitude, missing_longitude |
+| cannock-chase-2026-08 | Cannock Chase | model_ready | none |
 | cannock-chase-sherbrook-valley-2026-08 | Cannock Chase / Sherbrook Valley | model_ready | none |
 | tamworth-2026-08 | Tamworth | blocked | needs_verification, missing_start_timestamp, missing_latitude, missing_longitude, placeholder_source |
 | stoke-on-trent-2026-08 | Stoke-on-Trent | model_ready | none |
