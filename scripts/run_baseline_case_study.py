@@ -1,96 +1,36 @@
 from __future__ import annotations
 
 import argparse
-from datetime import timedelta
 from pathlib import Path
 
-from wildfirewatch_uk.features.controls import ControlLocation, generate_matched_controls
-from wildfirewatch_uk.features.weather import (
-    IncidentWeatherFeatures,
-    build_incident_weather_features,
-)
 from wildfirewatch_uk.ml.baseline import (
-    FeatureDatasetRow,
     evaluate_baseline_ranking,
 )
-from wildfirewatch_uk.providers.weather.open_meteo import OpenMeteoArchiveClient
-from wildfirewatch_uk.services.incident_weather_dataset import build_features_for_seed_incidents
-
-
-def _dataset_row_from_features(
-    features: IncidentWeatherFeatures, *, target: int
-) -> FeatureDatasetRow:
-    return FeatureDatasetRow(
-        sample_id=features.incident_id,
-        target=target,
-        temperature_2m_c=features.temperature_2m_c,
-        relative_humidity_2m_pct=features.relative_humidity_2m_pct,
-        wind_speed_10m_mps=features.wind_speed_10m_mps,
-        wind_gust_10m_mps=features.wind_gust_10m_mps,
-        rain_24h_mm=features.rain_24h_mm,
-        rain_7d_mm=features.rain_7d_mm,
-        rain_30d_mm=features.rain_30d_mm,
-        rain_60d_mm=features.rain_60d_mm,
-        days_since_rain=features.days_since_rain,
-        days_since_meaningful_rain=features.days_since_meaningful_rain,
-    )
-
-
-def _features_for_control(
-    control: ControlLocation,
-    *,
-    client: OpenMeteoArchiveClient,
-    lookback_days: int,
-) -> IncidentWeatherFeatures:
-    target_timestamp = control.target_timestamp
-    start_date = (target_timestamp - timedelta(days=lookback_days)).date()
-    observations = client.fetch_hourly_weather(
-        latitude=control.latitude,
-        longitude=control.longitude,
-        start_date=start_date,
-        end_date=target_timestamp.date(),
-    )
-    pseudo_incident = _pseudo_incident_from_control(control)
-    return build_incident_weather_features(pseudo_incident, observations)
-
-
-def _pseudo_incident_from_control(control: ControlLocation):
-    from wildfirewatch_uk.schemas.incident import IncidentRecord, IncidentSource
-
-    return IncidentRecord(
-        incident_id=control.control_id,
-        incident_name=control.control_id,
-        start_timestamp=control.target_timestamp,
-        latitude=control.latitude,
-        longitude=control.longitude,
-        location_name=control.control_id,
-        incident_type="control",
-        sources=[
-            IncidentSource(
-                url="https://github.com/supmathews/wildfirewatch-uk",
-                source_type="placeholder",
-                title="Generated non-fire control point",
-            )
-        ],
-    )
+from wildfirewatch_uk.ml.trainable_baseline import evaluate_trainable_logistic_baseline
+from wildfirewatch_uk.services.baseline_case_study import build_case_study_rows
 
 
 def run_baseline_case_study(
-    *, controls_per_incident: int, seed: int, lookback_days: int
+    *,
+    controls_per_incident: int,
+    seed: int,
+    lookback_days: int,
+    model: str = "heuristic",
+    epochs: int = 1200,
+    learning_rate: float = 0.45,
 ):
-    client = OpenMeteoArchiveClient()
-    incident_features = build_features_for_seed_incidents(
-        lookback_days=lookback_days, client=client
+    rows = build_case_study_rows(
+        controls_per_incident=controls_per_incident, seed=seed, lookback_days=lookback_days
     )
-    controls = generate_matched_controls(
-        incident_features, controls_per_incident=controls_per_incident, seed=seed
-    )
-    control_features = [
-        _features_for_control(control, client=client, lookback_days=lookback_days)
-        for control in controls
-    ]
-    rows = [_dataset_row_from_features(row, target=1) for row in incident_features]
-    rows.extend(_dataset_row_from_features(row, target=0) for row in control_features)
+    if model == "logistic":
+        return evaluate_trainable_logistic_baseline(
+            rows,
+            top_percentages=(10, 20, 50, 100),
+            epochs=epochs,
+            learning_rate=learning_rate,
+        )
+    if model != "heuristic":
+        raise ValueError(f"Unsupported baseline model: {model}")
     return evaluate_baseline_ranking(rows, top_percentages=(10, 20, 50, 100))
 
 
