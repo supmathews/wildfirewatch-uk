@@ -22,6 +22,7 @@ class IncidentSourceType(StrEnum):
     POLICE_STATEMENT = "police_statement"
     NEWS_REPORT = "news_report"
     SOCIAL_POST = "social_post"
+    GEOCODER = "geocoder"
     PLACEHOLDER = "placeholder"
 
 
