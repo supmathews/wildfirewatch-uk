@@ -29,6 +29,10 @@ def test_incident_group_id_maps_controls_to_matched_positive():
         incident_group_id(row("control-pershore-2026-08-005", 0, 21.0, 12.0))
         == "pershore-2026-08"
     )
+    assert (
+        incident_group_id(row("control-pershore-2026-08-landcover-005", 0, 21.0, 12.0))
+        == "pershore-2026-08"
+    )
 
 
 def test_leave_one_incident_out_holds_out_positive_and_its_controls():

@@ -3,6 +3,11 @@ from __future__ import annotations
 from datetime import timedelta
 
 from wildfirewatch_uk.features.controls import ControlLocation, generate_matched_controls
+from wildfirewatch_uk.features.land_cover_controls import (
+    LandCoverClassifier,
+    LandCoverMatchedControlLocation,
+    generate_land_cover_matched_controls,
+)
 from wildfirewatch_uk.features.temporal_controls import (
     TemporalControlLocation,
     generate_temporal_controls,
@@ -37,7 +42,7 @@ def dataset_row_from_features(
 
 
 def pseudo_incident_from_control(
-    control: ControlLocation | TemporalControlLocation,
+    control: ControlLocation | TemporalControlLocation | LandCoverMatchedControlLocation,
 ) -> IncidentRecord:
     return IncidentRecord(
         incident_id=control.control_id,
@@ -58,7 +63,7 @@ def pseudo_incident_from_control(
 
 
 def features_for_control(
-    control: ControlLocation | TemporalControlLocation,
+    control: ControlLocation | TemporalControlLocation | LandCoverMatchedControlLocation,
     *,
     client: OpenMeteoArchiveClient,
     lookback_days: int,
@@ -102,6 +107,34 @@ def build_temporal_case_study_rows(
         lookback_days=lookback_days, client=client
     )
     controls = generate_temporal_controls(incident_features, day_offsets=day_offsets)
+    control_features = [
+        features_for_control(control, client=client, lookback_days=lookback_days)
+        for control in controls
+    ]
+    rows = [dataset_row_from_features(row, target=1) for row in incident_features]
+    rows.extend(dataset_row_from_features(row, target=0) for row in control_features)
+    return rows
+
+
+def build_land_cover_case_study_rows(
+    *,
+    controls_per_incident: int,
+    seed: int,
+    lookback_days: int,
+    land_cover_classifier: LandCoverClassifier,
+    max_attempts_per_control: int = 250,
+) -> list[FeatureDatasetRow]:
+    client = OpenMeteoArchiveClient()
+    incident_features = build_features_for_seed_incidents(
+        lookback_days=lookback_days, client=client
+    )
+    controls = generate_land_cover_matched_controls(
+        incident_features,
+        controls_per_incident=controls_per_incident,
+        seed=seed,
+        land_cover_classifier=land_cover_classifier,
+        max_attempts_per_control=max_attempts_per_control,
+    )
     control_features = [
         features_for_control(control, client=client, lookback_days=lookback_days)
         for control in controls
