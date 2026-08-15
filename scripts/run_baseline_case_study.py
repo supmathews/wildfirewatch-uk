@@ -108,9 +108,10 @@ def write_report(evaluation, output_path: Path) -> None:
         f"""# Baseline retrospective ranking preview
 
 This is an early heuristic baseline using currently usable incidents and generated regional
-controls. It is **not** the final proof of concept: the positive dataset is still tiny,
-controls are rough regional offsets, and the scoring function is a transparent heuristic
-rather than a trained model.
+controls. Controls use the `regional_offset_min_distance_v2` sampler, which keeps them at
+least 20 km from all known incident points. It is **not** the final proof of concept: the
+positive dataset is still tiny, controls are rough regional offsets, and the scoring
+function is a transparent heuristic rather than a trained model.
 
 ## Dataset
 
@@ -132,8 +133,8 @@ rather than a trained model.
 
 This run verifies the end-to-end path: incident features, matched control generation,
 control weather retrieval, combined dataset assembly, and baseline ranking. The next
-iteration should increase verified positive incidents, replace rough controls with
-land-cover/region-matched controls, and train Logistic Regression / LightGBM once the
+iteration should increase verified positive incidents, replace rough min-distance controls
+with land-cover/region-matched controls, and train Logistic Regression / LightGBM once the
 dataset is large enough.
 """,
         encoding="utf-8",
