@@ -28,7 +28,8 @@
       }
     ],
     "confidence": "medium",
-    "notes": "Guardian reports Stourbridge homes evacuated on Osmaston Road on Thursday 13 August 2026 as a wildfire spread near the town golf course; exact ignition time not yet source-confirmed. Coordinates are approximate geocoding of Osmaston Road, not a fire perimeter."
+    "notes": "Guardian reports Stourbridge homes evacuated on Osmaston Road on Thursday 13 August 2026 as a wildfire spread near the town golf course; exact ignition time not yet source-confirmed. Coordinates are approximate geocoding of Osmaston Road, not a fire perimeter.",
+    "uk_nation": "england"
   },
   {
     "incident_id": "pershore-2026-08",
@@ -59,7 +60,8 @@
       }
     ],
     "confidence": "medium",
-    "notes": "Evesham Observer reports a significant fire on Three Springs Road, Pershore, reported at 4.17pm on 13 August 2026; police helped residents evacuate, 30 properties were evacuated, several homes damaged, and one person treated for smoke inhalation. Coordinates are approximate geocoding of Three Springs Road."
+    "notes": "Evesham Observer reports a significant fire on Three Springs Road, Pershore, reported at 4.17pm on 13 August 2026; police helped residents evacuate, 30 properties were evacuated, several homes damaged, and one person treated for smoke inhalation. Coordinates are approximate geocoding of Three Springs Road.",
+    "uk_nation": "england"
   },
   {
     "incident_id": "new-forest-2026-08",
@@ -95,7 +97,8 @@
       }
     ],
     "confidence": "medium",
-    "notes": "BBC reports the New Forest wildfire broke out on Sunday 9 August 2026 after a van caught fire on the A31 and spread to heathland; exact ignition time not yet source-confirmed. Coordinates are approximate geocoding of the A31 near Ringwood, not a fire perimeter."
+    "notes": "BBC reports the New Forest wildfire broke out on Sunday 9 August 2026 after a van caught fire on the A31 and spread to heathland; exact ignition time not yet source-confirmed. Coordinates are approximate geocoding of the A31 near Ringwood, not a fire perimeter.",
+    "uk_nation": "england"
   },
   {
     "incident_id": "llangynidr-reservoir-2026-08",
@@ -131,7 +134,8 @@
       }
     ],
     "confidence": "medium",
-    "notes": "MAWWFRS official updates report a moorland wildfire at Llangynidr Reservoir near Ebbw Vale that remained under control on 12 August 2026 after sustained firefighting and partner-agency response. Exact ignition/call time was not found in the official pages reviewed, so this record is source-backed but excluded from weather-feature modelling until a timestamp is verified. Coordinates are approximate geocoding of Llangynidr Reservoir, not a fire perimeter."
+    "notes": "MAWWFRS official updates report a moorland wildfire at Llangynidr Reservoir near Ebbw Vale that remained under control on 12 August 2026 after sustained firefighting and partner-agency response. Exact ignition/call time was not found in the official pages reviewed, so this record is source-backed but excluded from weather-feature modelling until a timestamp is verified. Coordinates are approximate geocoding of Llangynidr Reservoir, not a fire perimeter.",
+    "uk_nation": "wales"
   },
   {
     "incident_id": "cannock-chase-2026-08",
@@ -162,7 +166,8 @@
       }
     ],
     "confidence": "high",
-    "notes": "Staffordshire County Council reports crews were called to a large fire at the site in Brocton at 6pm on Thursday 30 July 2026 after a blaze started by a disposable barbecue; the fire scorched a football-pitch-sized area of heathland in Sherbrook Valley. Coordinates are approximate geocoding of Brocton, not a fire perimeter or exact burn centroid."
+    "notes": "Staffordshire County Council reports crews were called to a large fire at the site in Brocton at 6pm on Thursday 30 July 2026 after a blaze started by a disposable barbecue; the fire scorched a football-pitch-sized area of heathland in Sherbrook Valley. Coordinates are approximate geocoding of Brocton, not a fire perimeter or exact burn centroid.",
+    "uk_nation": "england"
   },
   {
     "incident_id": "cannock-chase-sherbrook-valley-2026-08",
@@ -193,7 +198,8 @@
       }
     ],
     "confidence": "medium",
-    "notes": "BBC reports a large wildfire on heathland at Sherbrook Valley in Cannock Chase, with fifteen crews responding after reports of smoke at about 14:30 BST on Wednesday 5 August 2026. Coordinates are approximate OpenStreetMap geocoding of Cannock Chase wood, not a Sherbrook Valley fire perimeter. Keep separate from the 30 July Brocton/Sherbrook Valley incident."
+    "notes": "BBC reports a large wildfire on heathland at Sherbrook Valley in Cannock Chase, with fifteen crews responding after reports of smoke at about 14:30 BST on Wednesday 5 August 2026. Coordinates are approximate OpenStreetMap geocoding of Cannock Chase wood, not a Sherbrook Valley fire perimeter. Keep separate from the 30 July Brocton/Sherbrook Valley incident.",
+    "uk_nation": "england"
   },
   {
     "incident_id": "tamworth-2026-08",
@@ -219,7 +225,8 @@
       }
     ],
     "confidence": "needs_verification",
-    "notes": "Research found only weak/snippet-level references to a Tamworth fire during the heatwave; keep as an unverified PLAN.md case-study location until a durable source URL is found."
+    "notes": "Research found only weak/snippet-level references to a Tamworth fire during the heatwave; keep as an unverified PLAN.md case-study location until a durable source URL is found.",
+    "uk_nation": "england"
   },
   {
     "incident_id": "stoke-on-trent-2026-08",
@@ -250,7 +257,8 @@
       }
     ],
     "confidence": "medium",
-    "notes": "BBC reports crews were called at 16:30 BST on Sunday 9 August 2026 to Park Hall Country Park off Park Hall Road, and that the fire covered about 100m x 100m of scrubland and grassland. Coordinates are approximate geocoding of Park Hall Country Park."
+    "notes": "BBC reports crews were called at 16:30 BST on Sunday 9 August 2026 to Park Hall Country Park off Park Hall Road, and that the fire covered about 100m x 100m of scrubland and grassland. Coordinates are approximate geocoding of Park Hall Country Park.",
+    "uk_nation": "england"
   },
   {
     "incident_id": "rhandirmwyn-llandovery-2026-08",
@@ -301,7 +309,8 @@
       }
     ],
     "confidence": "medium",
-    "notes": "South Wales Guardian reports a 250-hectare wildfire near Rhandirmwyn burning since Wednesday 12 August 2026 with homes evacuated; WalesOnline reports it had been burning since 12:45pm. MAWWFRS official updates confirm crews remained at the scene in the Rhandirmwyn area near Llandovery and that a Major Incident response was in place. Coordinates are approximate geocoding of Rhandirmwyn village, not the fire perimeter."
+    "notes": "South Wales Guardian reports a 250-hectare wildfire near Rhandirmwyn burning since Wednesday 12 August 2026 with homes evacuated; WalesOnline reports it had been burning since 12:45pm. MAWWFRS official updates confirm crews remained at the scene in the Rhandirmwyn area near Llandovery and that a Major Incident response was in place. Coordinates are approximate geocoding of Rhandirmwyn village, not the fire perimeter.",
+    "uk_nation": "wales"
   },
   {
     "incident_id": "porth-2026-08",
@@ -337,6 +346,7 @@
       }
     ],
     "confidence": "medium",
-    "notes": "BBC reports South Wales Fire and Rescue had significant resources at a Porth wildfire on Thursday 13 August 2026 and police arrested four 14-year-old boys on suspicion of arson after a deliberate fire on the mountain near Pleasant Heights, Porth. Exact ignition time not yet source-confirmed. Coordinates are approximate geocoding of Pleasant Heights."
+    "notes": "BBC reports South Wales Fire and Rescue had significant resources at a Porth wildfire on Thursday 13 August 2026 and police arrested four 14-year-old boys on suspicion of arson after a deliberate fire on the mountain near Pleasant Heights, Porth. Exact ignition time not yet source-confirmed. Coordinates are approximate geocoding of Pleasant Heights.",
+    "uk_nation": "wales"
   }
 ]
