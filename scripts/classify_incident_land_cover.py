@@ -5,6 +5,7 @@ import csv
 from dataclasses import dataclass
 from pathlib import Path
 
+from wildfirewatch_uk.providers.land_cover.cached import CachedLandCoverClassifier
 from wildfirewatch_uk.providers.land_cover.osm import OVERPASS_URL, OSMCoarseLandCoverClassifier
 from wildfirewatch_uk.services.incident_weather_dataset import build_features_for_seed_incidents
 
@@ -22,12 +23,21 @@ def main() -> None:
     )
     parser.add_argument("--overpass-url", default=OVERPASS_URL)
     parser.add_argument("--radius-degrees", type=float, default=0.006)
+    parser.add_argument(
+        "--cache-path", type=Path, default=Path("data/processed/osm_land_cover_cache.json")
+    )
+    parser.add_argument("--cache-only", action="store_true")
     parser.add_argument("--csv", type=Path, default=None)
     args = parser.parse_args()
 
-    classifier = OSMCoarseLandCoverClassifier(
-        overpass_url=args.overpass_url, radius_degrees=args.radius_degrees
-    )
+    if args.cache_only:
+        classifier = CachedLandCoverClassifier(cache_path=args.cache_path)
+    else:
+        classifier = OSMCoarseLandCoverClassifier(
+            overpass_url=args.overpass_url,
+            radius_degrees=args.radius_degrees,
+            cache_path=args.cache_path,
+        )
     if args.csv is not None and args.csv.exists():
         rows = list(csv.DictReader(args.csv.open()))
         incidents = [
