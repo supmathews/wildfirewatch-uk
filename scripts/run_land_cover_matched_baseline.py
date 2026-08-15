@@ -7,6 +7,7 @@ from wildfirewatch_uk.ml.out_of_sample import (
     LeaveOneIncidentOutEvaluation,
     evaluate_leave_one_incident_out,
 )
+from wildfirewatch_uk.providers.land_cover.cached import CachedLandCoverClassifier
 from wildfirewatch_uk.providers.land_cover.osm import OVERPASS_URL, OSMCoarseLandCoverClassifier
 from wildfirewatch_uk.services.baseline_case_study import build_land_cover_case_study_rows
 
@@ -16,8 +17,17 @@ def format_recall(recall: dict[int, float]) -> str:
 
 
 def write_report(
-    path: Path, evaluation: LeaveOneIncidentOutEvaluation, *, controls_per_incident: int
+    path: Path,
+    evaluation: LeaveOneIncidentOutEvaluation,
+    *,
+    controls_per_incident: int,
+    cache_only: bool,
 ) -> None:
+    source = (
+        "committed cache-only OSM coarse tag classification"
+        if cache_only
+        else "OSM / Overpass coarse tag classification"
+    )
     lines = [
         "# Land-cover-matched spatial logistic baseline preview",
         "",
@@ -28,7 +38,7 @@ def write_report(
         "## Configuration",
         "",
         f"- controls_per_incident: {controls_per_incident}",
-        "- land-cover source: OSM / Overpass coarse tag classification",
+        f"- land-cover source: {source}",
         "- evaluation: leave-one-incident-out",
         "",
         "## Metrics",
@@ -57,8 +67,9 @@ def write_report(
             "## Caveats",
             "",
             "- OSM land-cover labels are coarse and unevenly tagged.",
-            "- The sample remains tiny: four usable positives.",
-            "- Public Overpass endpoints can rate-limit; the classifier uses a local cache.",
+            f"- The sample remains tiny: {evaluation.positive_count} usable positives.",
+            "- Public Overpass endpoints can rate-limit; prefer cache-only mode "
+            "for deterministic reports.",
             "- This is still diagnostic evidence, not production wildfire prediction.",
             "",
         ]
@@ -74,6 +85,7 @@ def main() -> None:
     parser.add_argument("--max-attempts-per-control", type=int, default=80)
     parser.add_argument("--overpass-url", default=OVERPASS_URL)
     parser.add_argument("--radius-degrees", type=float, default=0.02)
+    parser.add_argument("--cache-only", action="store_true")
     parser.add_argument(
         "--cache-path", type=Path, default=Path("data/processed/osm_land_cover_cache.json")
     )
@@ -82,12 +94,15 @@ def main() -> None:
     )
     args = parser.parse_args()
 
-    classifier = OSMCoarseLandCoverClassifier(
-        overpass_url=args.overpass_url,
-        radius_degrees=args.radius_degrees,
-        cache_path=args.cache_path,
-        suppress_fetch_errors=True,
-    )
+    if args.cache_only:
+        classifier = CachedLandCoverClassifier(cache_path=args.cache_path, missing_ok=True)
+    else:
+        classifier = OSMCoarseLandCoverClassifier(
+            overpass_url=args.overpass_url,
+            radius_degrees=args.radius_degrees,
+            cache_path=args.cache_path,
+            suppress_fetch_errors=True,
+        )
     rows = build_land_cover_case_study_rows(
         controls_per_incident=args.controls_per_incident,
         seed=args.seed,
@@ -96,7 +111,12 @@ def main() -> None:
         max_attempts_per_control=args.max_attempts_per_control,
     )
     evaluation = evaluate_leave_one_incident_out(rows)
-    write_report(args.output, evaluation, controls_per_incident=args.controls_per_incident)
+    write_report(
+        args.output,
+        evaluation,
+        controls_per_incident=args.controls_per_incident,
+        cache_only=args.cache_only,
+    )
     print(
         f"samples={evaluation.sample_count} positives={evaluation.positive_count} "
         f"roc_auc={evaluation.roc_auc} pr_auc={evaluation.pr_auc} "
