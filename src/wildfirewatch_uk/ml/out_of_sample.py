@@ -34,7 +34,10 @@ def incident_group_id(row: FeatureDatasetRow) -> str:
     """Return the positive incident group a row belongs to."""
 
     if row.sample_id.startswith("control-"):
-        return row.sample_id.removeprefix("control-").rsplit("-", 1)[0]
+        control_id = row.sample_id.removeprefix("control-")
+        if "-temporal-" in control_id:
+            return control_id.split("-temporal-", maxsplit=1)[0]
+        return control_id.rsplit("-", 1)[0]
     return row.sample_id
 
 

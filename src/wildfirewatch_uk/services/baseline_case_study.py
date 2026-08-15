@@ -3,6 +3,10 @@ from __future__ import annotations
 from datetime import timedelta
 
 from wildfirewatch_uk.features.controls import ControlLocation, generate_matched_controls
+from wildfirewatch_uk.features.temporal_controls import (
+    TemporalControlLocation,
+    generate_temporal_controls,
+)
 from wildfirewatch_uk.features.weather import (
     IncidentWeatherFeatures,
     build_incident_weather_features,
@@ -32,7 +36,9 @@ def dataset_row_from_features(
     )
 
 
-def pseudo_incident_from_control(control: ControlLocation) -> IncidentRecord:
+def pseudo_incident_from_control(
+    control: ControlLocation | TemporalControlLocation,
+) -> IncidentRecord:
     return IncidentRecord(
         incident_id=control.control_id,
         incident_name=control.control_id,
@@ -52,7 +58,7 @@ def pseudo_incident_from_control(control: ControlLocation) -> IncidentRecord:
 
 
 def features_for_control(
-    control: ControlLocation,
+    control: ControlLocation | TemporalControlLocation,
     *,
     client: OpenMeteoArchiveClient,
     lookback_days: int,
@@ -79,6 +85,23 @@ def build_case_study_rows(
     controls = generate_matched_controls(
         incident_features, controls_per_incident=controls_per_incident, seed=seed
     )
+    control_features = [
+        features_for_control(control, client=client, lookback_days=lookback_days)
+        for control in controls
+    ]
+    rows = [dataset_row_from_features(row, target=1) for row in incident_features]
+    rows.extend(dataset_row_from_features(row, target=0) for row in control_features)
+    return rows
+
+
+def build_temporal_case_study_rows(
+    *, day_offsets: tuple[int, ...], lookback_days: int
+) -> list[FeatureDatasetRow]:
+    client = OpenMeteoArchiveClient()
+    incident_features = build_features_for_seed_incidents(
+        lookback_days=lookback_days, client=client
+    )
+    controls = generate_temporal_controls(incident_features, day_offsets=day_offsets)
     control_features = [
         features_for_control(control, client=client, lookback_days=lookback_days)
         for control in controls
