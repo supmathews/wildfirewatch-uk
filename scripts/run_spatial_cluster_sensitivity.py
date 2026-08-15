@@ -8,11 +8,7 @@ from wildfirewatch_uk.ml.cluster_sensitivity import (
     ClusterSensitivityScenario,
     evaluate_cluster_sensitivity,
 )
-from wildfirewatch_uk.services.baseline_case_study import build_temporal_case_study_rows
-
-
-def _parse_offsets(value: str) -> tuple[int, ...]:
-    return tuple(int(part.strip()) for part in value.split(",") if part.strip())
+from wildfirewatch_uk.services.baseline_case_study import build_case_study_rows
 
 
 def _format_recall(recall: dict[int, float]) -> str:
@@ -25,12 +21,12 @@ def _format_metric(value: float | None) -> str:
 
 def write_report(path: Path, scenarios: list[ClusterSensitivityScenario]) -> None:
     lines = [
-        "# Temporal-control cluster sensitivity preview",
+        "# Rough spatial-control cluster sensitivity preview",
         "",
-        "This report evaluates whether the temporal-control signal is sensitive to the",
-        "two geographically and temporally close Cannock Chase positives flagged by the",
-        "incident independence audit. It reruns leave-one-incident-out evaluation after",
-        "dropping either member of the potential local cluster.",
+        "This report evaluates whether rough spatial-control performance is sensitive to",
+        "the two geographically and temporally close Cannock Chase positives flagged by",
+        "the incident independence audit. It reruns leave-one-incident-out evaluation",
+        "after dropping either member of the potential local cluster.",
         "",
         "## Results",
         "",
@@ -51,14 +47,14 @@ def write_report(path: Path, scenarios: list[ClusterSensitivityScenario]) -> Non
             "",
             "## Interpretation",
             "",
-            "If metrics collapse when one local-cluster member is removed, the current signal",
-            "is likely too dependent on that cluster. If metrics remain directionally strong,",
-            "that is useful evidence that the temporal weather/dryness signal is not solely",
-            "carried by the paired Cannock Chase examples.",
+            "This sensitivity check applies to the rough regional-offset spatial controls.",
+            "It is intentionally separate from the temporal-control sensitivity report",
+            "because spatial controls answer a harder generalisation question.",
             "",
-            "This remains a tiny diagnostic test: removing one incident leaves only four",
-            "positives, so the scenario metrics are intentionally treated as sensitivity",
-            "checks, not stable performance estimates.",
+            "If spatial metrics collapse when one local-cluster member is removed, the",
+            "current spatial signal should be treated as especially fragile. If metrics",
+            "remain similar, the rough spatial diagnostic is less dependent on the cluster,",
+            "but still weak because the controls are coarse and the positive count is tiny.",
             "",
         ]
     )
@@ -66,18 +62,23 @@ def write_report(path: Path, scenarios: list[ClusterSensitivityScenario]) -> Non
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Run temporal cluster-sensitivity evaluation.")
-    parser.add_argument("--day-offsets", default="30,60,90")
+    parser = argparse.ArgumentParser(
+        description="Run rough spatial cluster-sensitivity evaluation."
+    )
+    parser.add_argument("--controls-per-incident", type=int, default=5)
+    parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--lookback-days", type=int, default=60)
     parser.add_argument("--epochs", type=int, default=1200)
     parser.add_argument("--learning-rate", type=float, default=0.45)
     parser.add_argument(
         "--output",
-        default="reports/temporal_cluster_sensitivity_preview.md",
+        default="reports/spatial_cluster_sensitivity_preview.md",
     )
     args = parser.parse_args()
-    rows = build_temporal_case_study_rows(
-        day_offsets=_parse_offsets(args.day_offsets), lookback_days=args.lookback_days
+    rows = build_case_study_rows(
+        controls_per_incident=args.controls_per_incident,
+        seed=args.seed,
+        lookback_days=args.lookback_days,
     )
     scenarios = evaluate_cluster_sensitivity(
         rows,
@@ -87,7 +88,7 @@ def main() -> None:
     )
     output = Path(args.output)
     write_report(output, scenarios)
-    print(f"wrote temporal cluster-sensitivity report to {output}")
+    print(f"wrote rough spatial cluster-sensitivity report to {output}")
     for scenario in scenarios:
         print(
             f"{scenario.name}: samples={scenario.sample_count} "

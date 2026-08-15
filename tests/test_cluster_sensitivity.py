@@ -1,5 +1,6 @@
 from wildfirewatch_uk.ml.baseline import FeatureDatasetRow
 from wildfirewatch_uk.ml.cluster_sensitivity import (
+    CANNOCK_CLUSTER_EXCLUSIONS,
     ClusterSensitivityScenario,
     evaluate_cluster_sensitivity,
     filter_rows_by_excluded_groups,
@@ -60,3 +61,11 @@ def test_evaluate_cluster_sensitivity_runs_all_scenarios():
     assert scenarios[1].sample_count == 9
     assert scenarios[1].positive_count == 3
     assert isinstance(scenarios[0], ClusterSensitivityScenario)
+
+
+def test_cannock_cluster_exclusions_are_shared_and_named():
+    assert {
+        "all_model_ready": set(),
+        "drop_cannock_chase_30_july": {"cannock-chase-2026-08"},
+        "drop_cannock_chase_5_august": {"cannock-chase-sherbrook-valley-2026-08"},
+    } == CANNOCK_CLUSTER_EXCLUSIONS

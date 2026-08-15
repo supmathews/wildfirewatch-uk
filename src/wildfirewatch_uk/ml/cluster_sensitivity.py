@@ -10,6 +10,12 @@ from wildfirewatch_uk.ml.out_of_sample import (
     incident_group_id,
 )
 
+CANNOCK_CLUSTER_EXCLUSIONS = {
+    "all_model_ready": set(),
+    "drop_cannock_chase_30_july": {"cannock-chase-2026-08"},
+    "drop_cannock_chase_5_august": {"cannock-chase-sherbrook-valley-2026-08"},
+}
+
 
 class ClusterSensitivityScenario(BaseModel):
     name: str
