@@ -1,3 +1,5 @@
+import json
+
 from wildfirewatch_uk.providers.land_cover.osm import (
     OSMCoarseLandCoverClassifier,
     build_overpass_point_query,
@@ -49,3 +51,32 @@ def test_osm_classifier_returns_none_when_payload_has_no_relevant_tags():
     classifier = OSMCoarseLandCoverClassifier(fetcher=lambda _url: {"elements": []})
 
     assert classifier.classify(latitude=52.0, longitude=-2.0) is None
+
+
+def test_osm_classifier_can_treat_fetch_errors_as_unknown():
+    def fetcher(_url: str) -> dict:
+        raise TimeoutError("overpass unavailable")
+
+    classifier = OSMCoarseLandCoverClassifier(fetcher=fetcher, suppress_fetch_errors=True)
+
+    assert classifier.classify(latitude=52.0, longitude=-2.0) is None
+
+
+def test_osm_classifier_persists_cache_between_instances(tmp_path):
+    cache_path = tmp_path / "osm_land_cover_cache.json"
+    calls = []
+
+    def fetcher(url: str) -> dict:
+        calls.append(url)
+        return {"elements": [{"tags": {"natural": "wood"}}]}
+
+    first = OSMCoarseLandCoverClassifier(fetcher=fetcher, cache_path=cache_path)
+    assert first.classify(latitude=52.123456, longitude=-2.654321) == "woodland"
+    assert json.loads(cache_path.read_text()) == {"52.123456,-2.654321": "woodland"}
+
+    second = OSMCoarseLandCoverClassifier(
+        fetcher=lambda _url: (_ for _ in ()).throw(AssertionError("should use cache")),
+        cache_path=cache_path,
+    )
+    assert second.classify(latitude=52.123456, longitude=-2.654321) == "woodland"
+    assert len(calls) == 1

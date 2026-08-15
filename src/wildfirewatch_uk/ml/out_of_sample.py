@@ -37,6 +37,8 @@ def incident_group_id(row: FeatureDatasetRow) -> str:
         control_id = row.sample_id.removeprefix("control-")
         if "-temporal-" in control_id:
             return control_id.split("-temporal-", maxsplit=1)[0]
+        if "-landcover-" in control_id:
+            return control_id.split("-landcover-", maxsplit=1)[0]
         return control_id.rsplit("-", 1)[0]
     return row.sample_id
 

@@ -5,6 +5,7 @@ import time
 import urllib.parse
 import urllib.request
 from collections.abc import Callable
+from pathlib import Path
 from typing import Any
 
 OVERPASS_URL = "https://overpass-api.de/api/interpreter"
@@ -91,11 +92,35 @@ class OSMCoarseLandCoverClassifier:
         overpass_url: str = OVERPASS_URL,
         radius_degrees: float = 0.003,
         fetcher: Callable[[str], dict[str, Any]] = fetch_overpass_json,
+        cache_path: Path | None = None,
+        suppress_fetch_errors: bool = False,
     ) -> None:
         self.overpass_url = overpass_url
         self.radius_degrees = radius_degrees
         self.fetcher = fetcher
-        self._cache: dict[tuple[float, float], str | None] = {}
+        self.cache_path = cache_path
+        self.suppress_fetch_errors = suppress_fetch_errors
+        self._cache: dict[tuple[float, float], str | None] = self._load_cache()
+
+    def _load_cache(self) -> dict[tuple[float, float], str | None]:
+        if self.cache_path is None or not self.cache_path.exists():
+            return {}
+        payload = json.loads(self.cache_path.read_text())
+        cache: dict[tuple[float, float], str | None] = {}
+        for key, value in payload.items():
+            latitude_text, longitude_text = key.split(",", maxsplit=1)
+            cache[(float(latitude_text), float(longitude_text))] = value
+        return cache
+
+    def _save_cache(self) -> None:
+        if self.cache_path is None:
+            return
+        self.cache_path.parent.mkdir(parents=True, exist_ok=True)
+        payload = {
+            f"{latitude:.6f},{longitude:.6f}": land_cover
+            for (latitude, longitude), land_cover in sorted(self._cache.items())
+        }
+        self.cache_path.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n")
 
     def classify(self, *, latitude: float, longitude: float) -> str | None:
         cache_key = (round(latitude, 6), round(longitude, 6))
@@ -105,7 +130,14 @@ class OSMCoarseLandCoverClassifier:
             latitude=latitude, longitude=longitude, radius_degrees=self.radius_degrees
         )
         url = self.overpass_url + "?" + urllib.parse.urlencode({"data": query})
-        payload = self.fetcher(url)
+        try:
+            payload = self.fetcher(url)
+        except Exception:
+            if not self.suppress_fetch_errors:
+                raise
+            self._cache[cache_key] = None
+            self._save_cache()
+            return None
         classes = [
             coarse_land_cover_from_tags(element.get("tags", {}))
             for element in payload.get("elements", [])
@@ -116,4 +148,5 @@ class OSMCoarseLandCoverClassifier:
             default=None,
         )
         self._cache[cache_key] = result
+        self._save_cache()
         return result
