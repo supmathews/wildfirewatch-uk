@@ -4,5 +4,6 @@
 - Replace approximate geocoded point locations with source-backed incident centroids or fire perimeters before spatial modelling.
 - Confirm exact ignition/start times for Stourbridge, New Forest, Porth, and Tamworth.
 - Resolve source-backed coordinates for Cannock Chase; the official source names Brocton/Sherbrook Valley but no centroid has been selected.
-- Select first rainfall/weather data providers based on licensing and historical coverage.
+- Replace the Open-Meteo archive fallback with authoritative UK rainfall/weather providers where licensing and historical coverage allow.
+- Add matched non-fire control locations so the first retrospective dataset can test whether incident locations ranked unusually high.
 - Decide whether to use a 1 km UK grid or H3 cells for the first case study.
