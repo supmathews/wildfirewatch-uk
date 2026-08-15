@@ -275,13 +275,28 @@
         "title": "WalesOnline: Military called in as wildfires rage across south Wales"
       },
       {
+        "url": "https://www.mawwfire.gov.uk/eng/newsroom/wildfire-at-rhandirmwyn-incident-update/",
+        "source_type": "official_report",
+        "title": "Mid and West Wales Fire and Rescue Service: Wildfire at Rhandirmwyn: Incident Update"
+      },
+      {
+        "url": "https://www.mawwfire.gov.uk/eng/newsroom/wildfire-at-rhandirmwyn-incident-update-15082026/",
+        "source_type": "official_report",
+        "title": "Mid and West Wales Fire and Rescue Service: Wildfire at Rhandirmwyn: Incident Update 15/08/2026"
+      },
+      {
+        "url": "https://www.mawwfire.gov.uk/eng/newsroom/wildfire-incidents-our-response/",
+        "source_type": "official_report",
+        "title": "Mid and West Wales Fire and Rescue Service: Wildfire Incidents: Our Response"
+      },
+      {
         "url": "https://nominatim.openstreetmap.org/search?format=jsonv2&limit=1&q=Rhandirmwyn%2C%20Carmarthenshire%2C%20Wales%2C%20UK",
         "source_type": "geocoder",
         "title": "OpenStreetMap Nominatim geocoding result for Rhandirmwyn, Carmarthenshire, Wales, UK"
       }
     ],
     "confidence": "medium",
-    "notes": "South Wales Guardian reports a 250-hectare wildfire near Rhandirmwyn burning since Wednesday 12 August 2026 with homes evacuated; WalesOnline reports it had been burning since 12:45pm. Coordinates are approximate geocoding of Rhandirmwyn village, not the fire perimeter."
+    "notes": "South Wales Guardian reports a 250-hectare wildfire near Rhandirmwyn burning since Wednesday 12 August 2026 with homes evacuated; WalesOnline reports it had been burning since 12:45pm. MAWWFRS official updates confirm crews remained at the scene in the Rhandirmwyn area near Llandovery and that a Major Incident response was in place. Coordinates are approximate geocoding of Rhandirmwyn village, not the fire perimeter."
   },
   {
     "incident_id": "porth-2026-08",
