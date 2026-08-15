@@ -1,7 +1,7 @@
 from datetime import datetime, timedelta, timezone
 
 from wildfirewatch_uk.providers.incidents.seed_loader import load_seed_incidents
-from wildfirewatch_uk.schemas.incident import IncidentConfidence, IncidentSourceType
+from wildfirewatch_uk.schemas.incident import IncidentConfidence, IncidentSourceType, UKNation
 
 BST = timezone(timedelta(hours=1))
 
@@ -89,3 +89,22 @@ def test_seed_dataset_includes_researched_coordinates_when_source_location_is_sp
     assert incidents["cannock-chase-2026-08"].longitude == -2.0458326
     assert incidents["llangynidr-reservoir-2026-08"].latitude == 51.8188852
     assert incidents["llangynidr-reservoir-2026-08"].longitude == -3.2310517
+
+
+def test_seed_dataset_has_uk_nation_labels_for_transfer_experiments():
+    incidents = incident_by_id()
+
+    assert {incident.uk_nation for incident in incidents.values()} == {
+        UKNation.ENGLAND,
+        UKNation.WALES,
+    }
+    assert incidents["stourbridge-2026-08"].uk_nation is UKNation.ENGLAND
+    assert incidents["pershore-2026-08"].uk_nation is UKNation.ENGLAND
+    assert incidents["new-forest-2026-08"].uk_nation is UKNation.ENGLAND
+    assert incidents["cannock-chase-2026-08"].uk_nation is UKNation.ENGLAND
+    assert incidents["cannock-chase-sherbrook-valley-2026-08"].uk_nation is UKNation.ENGLAND
+    assert incidents["tamworth-2026-08"].uk_nation is UKNation.ENGLAND
+    assert incidents["stoke-on-trent-2026-08"].uk_nation is UKNation.ENGLAND
+    assert incidents["llangynidr-reservoir-2026-08"].uk_nation is UKNation.WALES
+    assert incidents["rhandirmwyn-llandovery-2026-08"].uk_nation is UKNation.WALES
+    assert incidents["porth-2026-08"].uk_nation is UKNation.WALES

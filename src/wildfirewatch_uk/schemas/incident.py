@@ -26,6 +26,15 @@ class IncidentSourceType(StrEnum):
     PLACEHOLDER = "placeholder"
 
 
+class UKNation(StrEnum):
+    """UK nation label for transfer/calibration experiments."""
+
+    ENGLAND = "england"
+    SCOTLAND = "scotland"
+    WALES = "wales"
+    NORTHERN_IRELAND = "northern_ireland"
+
+
 class IncidentSource(BaseModel):
     """A source supporting one or more incident claims."""
 
@@ -44,6 +53,7 @@ class IncidentRecord(BaseModel):
     latitude: float | None = Field(default=None, ge=-90, le=90)
     longitude: float | None = Field(default=None, ge=-180, le=180)
     location_name: str = Field(min_length=2)
+    uk_nation: UKNation | None = None
     fire_service: str | None = None
     incident_type: str = Field(default="wildfire", min_length=2)
     area_burned_ha: float | None = Field(default=None, ge=0)
